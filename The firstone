@@ -1,0 +1,12 @@
+pip3 install qrcode pyzbar Pillow
+pip install qrcode pyzbar Pillow
+import qrcode
+text = "MrPython.blog.ir"
+qr = qrcode.make(text)
+qr.save("my_qrcode.png")
+from pyzbar.pyzbar import decode
+from PIL import Image
+picture = Image.open("my_qrcode.png")
+qr = decode(picture)
+text = qr[0].data.decode()
+print("Text : {}".format(text))
